@@ -6,14 +6,30 @@ use App\Models\Categorias;
 use App\Models\Etiquetas;
 use Illuminate\Http\Request;
 use App\Models\Publicacion;
+use Illuminate\Auth\Middleware\Authorize;
+use Illuminate\Support\Facades\Cache;
 
 class PublicacionController extends Controller
 {
     public function index(){
-        $publicacion = Publicacion::where("estados",2)->latest("id")->paginate(8);
+
+        if(request()->page){
+            $key = "publicacion" . request()->page;
+        }else{
+            $key = "publicacion";
+        }
+        if(Cache::has($key)){
+            $publicacion = Cache::get($key);
+        }else {
+            $publicacion = Publicacion::where("estados",2)->latest("id")->paginate(8);
+            Cache::put($key, $publicacion);
+        }
+        
         return view("post.index",compact("publicacion"));
     }
     public function show(Publicacion $publicacion){
+
+        $this->authorize("published",$publicacion);
         $similar = Publicacion::where("id_categoria", $publicacion->id_categoria)
             ->where("estados",2)
             ->where("id","!=",$publicacion->id)

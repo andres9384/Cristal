@@ -12,7 +12,6 @@
             {!! Form::open(["route"=>"admin.posts.store", "autocomplete"=>"off","files"=>true]) !!}
 
             
-                {!! Form::hidden("id_usuario", auth()->user()->id) !!}
             
                 @include('admin.posts.partials.form')
 

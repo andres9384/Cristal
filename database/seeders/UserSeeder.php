@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             "name"=>"Andres Felipe Cristancho Hastamorir",
             "email"=>"afcristancho5@misena.edu.co",
             "password"=>bcrypt("mostruo.50")
-        ]);
-        User::factory(9)->create();
+        ])->assignRole("Admin");
+        User::factory(50)->create();
     }
 }

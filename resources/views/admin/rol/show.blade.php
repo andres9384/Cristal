@@ -3,7 +3,7 @@
 @section('title', 'Cristal')
 
 @section('content_header')
-    <h1>Mostrar Dettalle Categoria</h1>
+    <h1>Mostrar Rol</h1>
 @stop
 
 @section('content')
