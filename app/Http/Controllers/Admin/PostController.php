@@ -33,10 +33,10 @@ class PostController extends Controller
     public function create()
     {
         $categorias =Categorias::pluck("nombre","id");
-        $etiquetas = Etiquetas::all();
+        $tags = Etiquetas::all();
 
         // return $categorias;
-        return view("admin.posts.create",compact("categorias","etiquetas"));
+        return view("admin.posts.create",compact("categorias","tags"));
     }
 
     public function store(PostRequest $request)
@@ -55,8 +55,8 @@ class PostController extends Controller
         Cache::flush();
         
 
-        if($request->etiqueta){
-            $publicacione->etiquetasbla()->attach($request->etiqueta);
+        if($request->etiquetas){
+            $publicacione->etiquetas()->attach($request->etiquetas);
         }
         return redirect()->route("admin.posts.edit", compact("publicacione"));
     }
@@ -67,8 +67,8 @@ class PostController extends Controller
         $this->authorize("author",$publicacione);
 
         $categorias = Categorias::pluck("nombre","id");
-        $etiquetas = Etiquetas::all();
-        return view("admin.posts.edit", compact("publicacione","categorias","etiquetas"));
+        $tags = Etiquetas::all();
+        return view("admin.posts.edit", compact("publicacione","categorias","tags"));
     }
 
     public function update(PostRequest $request, Publicacion $publicacione)
@@ -93,7 +93,7 @@ class PostController extends Controller
         }
 
         if($request->etiqueta){
-            $publicacione->etiquetasbla()->sync($request->etiqueta);
+            $publicacione->etiquetas()->sync($request->etiqueta);
         }
         
         Cache::flush();

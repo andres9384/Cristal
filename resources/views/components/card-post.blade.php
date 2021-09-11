@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="px-6 pt-4 pb-2">
-            @foreach($publicaciones->etiquetasbla as $etiquetas)
+            @foreach($publicaciones->etiquetas as $etiquetas)
                 <a href="{{route("post.tag",$etiquetas)}}" class="inline-block bg-gray-200 rounded-full px-3 py-1  text-sm text-gray-700 mr-2">{{$etiquetas->nombre}}</a>
             @endforeach
         </div>

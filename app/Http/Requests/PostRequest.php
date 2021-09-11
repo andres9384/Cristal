@@ -45,7 +45,7 @@ class PostRequest extends FormRequest
         if($this->estados == 2){
             $rules= array_merge($rules,[
                 "id_categoria"=>"required",
-                "etiqueta"=>"required",
+                "etiquetas"=>"required",
                 "extracto"=>"required",
                 "cuerpo"=>"required"
             ]);

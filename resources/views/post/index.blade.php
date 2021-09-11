@@ -8,7 +8,7 @@
                 }}  --}}
                 <div class="w-full h-full px-8 flex flex-col justify-center">
                     <div>
-                        @foreach($publicaciones->etiquetasbla as $items)
+                        @foreach($publicaciones->etiquetas as $items)
                         <a href="{{route("post.tag",$items)}}" style="background-color:{{$items->color}}" class="inline-block px-3 h-6  text-white rounded-full">{{$items->nombre}}</a>
                         @endforeach
                     </div>

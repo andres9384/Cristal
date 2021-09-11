@@ -22,7 +22,7 @@ class Publicacion extends Model
     }
 
     //relacion muchos a muchos
-    public function etiquetasbla()
+    public function etiquetas()
     {
         return $this->belongsToMany(Etiquetas::class);
     }

@@ -20,7 +20,7 @@ class PublicacionSeeder extends Seeder
                 "imagen_id"=>$publicaciones->id,
                 "imagen_type"=> Publicacion::class,
             ]);
-            $publicaciones->etiquetasbla()->attach([rand(1, 4),rand(5, 8)]);
+            $publicaciones->etiquetas()->attach([rand(1, 4),rand(5, 8)]);
         }
     }
 }

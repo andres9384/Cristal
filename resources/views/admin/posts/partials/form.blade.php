@@ -35,11 +35,12 @@
  {{-- etiquetas --}}
 <div class="form-group">
     <p class="font-weight-bold">Etiquetas</p>
-    @foreach ($etiquetas as $etiqueta)
+  
+    @foreach ($tags as $tag)
 
         <label class="mr-2">
-            {!! Form::checkbox("etiqueta[]", $etiqueta->id, null) !!}
-            {{$etiqueta->nombre}}
+            {!! Form::checkbox("etiquetas[]", $tag->id, null) !!}
+            {{$tag->nombre}}
         </label>
         
     @endforeach  

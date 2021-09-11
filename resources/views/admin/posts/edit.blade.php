@@ -12,6 +12,7 @@
     <strong>{{session("info")}}</strong>
 </div>
 @endif
+
     <div class="card">
         <div class="card-body">
             {!! Form::model($publicacione,["route"=>["admin.posts.update",$publicacione], "autocomplete"=>"off","files"=>true,"method"=>"put"]) !!}
